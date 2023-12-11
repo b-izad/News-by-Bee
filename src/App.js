@@ -4,6 +4,14 @@ import NewsList from './NewsList';
 
 function App() {
   const [articles, setArticles] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(3); // State to track the number of visible articles
+
+  // ... existing onSelectCategory and other functions ...
+
+  const showMoreArticles = () => {
+    setVisibleCount(prevCount => prevCount + 3); // Increase the count by 3 each time 'Show More' is clicked
+  };
+
   
   const onSelectCategory = (category) => {
     console.log('Selected Category:', category);
@@ -16,7 +24,12 @@ function App() {
       return response.json();  // Return the parsed JSON
     })
     .then(data => {
-      setArticles(data.articles);  // Set articles state with fetched data
+      // Filter out articles with missing or 'removed' content
+      const filteredArticles = data.articles.filter(article => {
+        return article.content !== '[Removed]' && article.content;
+      });
+
+      setArticles(filteredArticles);
     })
     .catch(error => {
       console.error('Error fetching news:', error);
@@ -28,7 +41,10 @@ function App() {
   return (
     <div>
       <Header onSelectCategory={onSelectCategory} />
-      <NewsList articles={articles} />
+      <NewsList articles={articles.slice(0, visibleCount)} /> {/* Only display a slice of articles */}
+      {visibleCount < articles.length && (
+        <button onClick={showMoreArticles}>Show More</button> // Show this button only if there are more articles to show
+      )}
     </div>
   );
 }

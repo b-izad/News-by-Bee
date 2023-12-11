@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import { FcApproval } from 'react-icons/fc';
 
 
 function Header({ onSelectCategory }) {
@@ -7,7 +8,7 @@ function Header({ onSelectCategory }) {
 
   return (
     <header>
-      <h1>News By Bee</h1>
+      <h1><FcApproval />Bee News</h1>
       <nav>
         {categories.map(category => (
           <button key={category} onClick={() => onSelectCategory(category)}>
