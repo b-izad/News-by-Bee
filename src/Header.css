@@ -6,6 +6,9 @@ header {
     height: 60px;
     padding-left: 20px;
    background-color: rgb(14, 6, 55);
+   width: 100%; /* Ensures full width */
+   margin: 0; /* Resets any default margin */
+   padding: 0;
   }
   
   
@@ -29,4 +32,13 @@ header {
   nav button:hover {
     background-color: #45a049;
   }
-  
+  /* Header.css */
+
+/* Styles for smaller screens (e.g., mobile devices) */
+@media (max-width: 844px) {
+  nav button {
+    display: none; /* Hide buttons on small screens */
+  }
+
+  /* Any additional styles for mobile layout */
+}
