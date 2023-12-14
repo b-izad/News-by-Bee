@@ -19,6 +19,18 @@ header {
   
   }
   
+  .home-link, .home-button {
+    background: none;
+    border: none;
+    color: inherit; /* or any color you prefer */
+    text-decoration: none; /* for the link */
+    cursor: pointer;
+  }
+  
+  .home-link h1, .home-button h1 {
+    margin: 0; /* Adjust as needed */
+  }
+  
   nav button {
     margin: 0 5px;
     padding: 15px 20px;

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import { FcApproval } from 'react-icons/fc';
+import { Link } from 'react-router-dom';
 
 
 function Header({ onSelectCategory }) {
@@ -8,7 +9,8 @@ function Header({ onSelectCategory }) {
 
   return (
     <header>
-      <h1><FcApproval />Bee News</h1>
+      <Link to="/" className="home-link">
+      <h1><FcApproval />Bee News</h1></Link>
       <nav>
         {categories.map(category => (
           <button key={category} onClick={() => onSelectCategory(category)}>
