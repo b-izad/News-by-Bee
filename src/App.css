@@ -1,17 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -25,21 +11,6 @@
   width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* App.css */
-
 .show-more-button {
   display: block;
   margin: 20px auto; /* Centers the button horizontally */
@@ -51,44 +22,16 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  
 }
 
 .show-more-button:hover {
   background-color: #0056b3; /* Darker shade for hover effect */
 }
-/* App.css */
-
-.app-container {
+.content-container {
   display: flex;
-  width: 100%; 
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  background-color: white;
 }
-
-/* App.css */
-
-.top-headlines {
-  width: 25%; /* Increase the width */
-  background-color: #f8f9fa; /* Light background for the sidebar */
-  padding: 15px;
-  box-shadow: 2px 0px 5px rgba(0,0,0,0.1); /* Adding a subtle shadow */
-  height: 100vh; /* Make it full height */
-  overflow-y: auto; /* Keeps the scrollbar if content overflows */
-}
-
-.headline {
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.headline:last-child {
-  border-bottom: none; /* Removes the line from the last item */
-  border-top: none; /* Removes the line from the last item */
-
-}
-.headline p {
-  margin: 0; /* Remove default paragraph margin */
-  font-weight: bold; /* Optional: Makes title text bold */
-  color: #333; /* Darker text color for readability */
-}
-
-
-/* Rest of your CSS */
