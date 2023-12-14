@@ -1,8 +1,13 @@
-import React from 'react';
-import './NewsList.css'; // Import the CSS file
+import React, { useState } from 'react';
+import './NewsList.css';
 
 const NewsList = ({ articles }) => {
-    // Function to calculate time difference
+    const [visibleCount, setVisibleCount] = useState(3);
+
+    const showMoreArticles = () => {
+        setVisibleCount(prevCount => prevCount + 3);
+    };
+
     const getTimeAgo = (publishedAt) => {
         const publishedDate = new Date(publishedAt);
         const currentDate = new Date();
@@ -19,20 +24,22 @@ const NewsList = ({ articles }) => {
 
     return (
         <div>
-            {articles.map(article => (
+            {articles.slice(0, visibleCount).map(article => (
                 <div key={article.url} className="news-item">
                     <div className="news-content">
-                    <p className="news-source" style={{ color: 'blue' }}>{article.source.name}</p>
+                        <p className="news-source" style={{ color: 'blue' }}>{article.source.name}</p>
                         <h3 className="news-title">
                             <a href={article.url} target="_blank" rel="noopener noreferrer">{article.title}</a>
                         </h3>
-                        
                         <p className="news-description">{article.description}</p>
                         <p className="news-time">{getTimeAgo(article.publishedAt)}</p>
                     </div>
                     <img src={article.urlToImage} alt={article.title} className="news-image" />
                 </div>
             ))}
+            {visibleCount < articles.length && (
+                <button onClick={showMoreArticles} className="show-more-button">Show More</button>
+            )}
         </div>
     );
 };
