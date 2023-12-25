@@ -1,21 +1,20 @@
-
 import React from 'react';
-import './TrendingNews.css'
+import './TrendingNews.css';
 
 const TrendingNews = ({ articles }) => {
-    
+    if (!articles || articles.length === 0) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div className="trending-news">
-            <h1 >Trending</h1>
+            <h1>Trending</h1>
             {articles.map((article, index) => (
-              
                 <div key={index} className="trending-news-item">
-                    
                     <a href={article.url} target="_blank" rel="noopener noreferrer">
-                    <p className="news-source" style={{ color: 'blue' }}>{article.source.name}</p>
+                        <p className="news-source" style={{ color: 'blue' }}>{article.source.name}</p>
                         {article.title}
                     </a>
-                   
                 </div>
             ))}
         </div>

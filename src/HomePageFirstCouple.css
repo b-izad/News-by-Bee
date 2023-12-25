@@ -1,0 +1,30 @@
+/* HomePageFirstCouple.css */
+.home-page-first-couple {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 20px;
+    padding-top:20px;
+  }
+  
+  .each-single-from-couple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 8px; /* Reduced margin for closer images */
+  }
+  
+  .each-single-from-couple-image {
+    width: 500px; /* Adjust the size as needed */
+    height: 300px;
+    margin-bottom: 10px;
+  }
+  
+  .each-single-from-couple-title{
+    text-align: left;
+    font-size: 1rem;
+    width: 500px; /* Ensure this matches the image width */
+   
+  }
+  

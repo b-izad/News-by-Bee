@@ -1,9 +1,11 @@
 import React from 'react';
+import HomePageFirstCouple from './HomePageFirstCouple';
 
-function Home() {
+
+function Home({ topHeadlines }) {
   return (
     <div>
-      <h2>Welcome to News By B</h2>
+      <HomePageFirstCouple news={topHeadlines} />
       {/* Other homepage content */}
     </div>
   );

@@ -4,6 +4,7 @@ import Header from './Header';
 import NewsList from './NewsList';
 import TrendingNews from './TrendingNews';
 import Home from './Home';
+import Footer from './Footer'; // Import the Footer component
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { categories } from './const';
 
@@ -42,26 +43,31 @@ function App() {
 
   return (
     <Router>
-      <div className="main-content">
+      <div className="app-container">
         <Header onSelectCategory={onSelectCategory} />
-        <Routes>
-          <Route path="/" element={<Home topHeadlines={topHeadlines} />} />
-          {categories.map((category) => (
-            <Route 
-              key={category} 
-              path={`/category/${category.toLowerCase()}`} 
-              element={
-                <div className="content-container">
-                  <NewsList articles={articles} />
-                  <TrendingNews articles={topHeadlines} />
-                </div>
-              } 
-            />
-          ))}
-        </Routes>
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Home topHeadlines={topHeadlines} />} />
+            {categories.map((category) => (
+              <Route 
+                key={category} 
+                path={`/category/${category.toLowerCase()}`} 
+                element={
+                  <div className="content-container">
+                    <NewsList articles={articles} />
+                    <TrendingNews articles={topHeadlines} />
+                  </div>
+                } 
+              />
+            ))}
+          </Routes>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
 }
+          
+ 
 
 export default App;

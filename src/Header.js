@@ -15,7 +15,7 @@ function Header({ onSelectCategory }) {
 
   return (
     <header>
-      <Link to="/" className="home-link"><h1><FcApproval />Bee News</h1></Link>
+      <Link to="/" className="home-link"><h1><FcApproval /> Bee News</h1></Link>
       <nav>
         {categories.map(category => (
           <button key={category} onClick={() => handleCategoryClick(category)} className="category-button">
